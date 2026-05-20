@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Daniel Frota — Emagrecimento Masculino · Fortaleza, CE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --green: #8B5E3C;
+      --green-dark: #6e4a2e;
+      --gold: #C4923A;
+      --text: #1a1a1a;
+      --muted: #6b6560;
+      --border: #e8e2d9;
+      --white: #ffffff;
+      --radius: 3px;
+      --grad: linear-gradient(135deg, #C8714A 0%, #9B4E28 50%, #6B3019 100%);
+      --grad-h: linear-gradient(135deg, #D4845C 0%, #A85A30 50%, #7A3820 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    /* ─── TYPOGRAPHY ─── */
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; color: var(--text); }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3.4vw, 36px);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    /* ─── UTILS ─── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+    @media (max-width: 480px) { .container { padding: 0 16px; } }
+
+    .btn {
+      display: inline-block;
+      background: var(--grad);
+      color: #ffffff !important;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: var(--radius);
+      border: 2px solid #9B4E28;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(139,94,60,0.25);
+    }
+
+    .btn:hover {
+      background: var(--grad-h);
+      border-color: #6e4a2e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(139,94,60,0.35);
+    }
+
+    .gold-line {
+      width: 0;
+      height: 2px;
+      background: var(--grad);
+      display: block;
+      margin: 16px 0 22px;
+      transition: width 1s ease 0.3s;
+    }
+
+    .gold-line.visible { width: 60px; }
+
+    /* ─── ANIMAÇÕES VARIADAS ─── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    .slide-left { opacity: 0; transform: translateX(-32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .slide-left.visible { opacity: 1; transform: translateX(0); }
+
+    .slide-right { opacity: 0; transform: translateX(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .slide-right.visible { opacity: 1; transform: translateX(0); }
+
+    .scale-in { opacity: 0; transform: scale(0.94); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+
+    .fade-up-slow { opacity: 0; transform: translateY(40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+    .fade-up-slow.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── NAV ─── */
+    #header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 22px 0;
+      transition: background 0.3s, box-shadow 0.3s, padding 0.3s;
+    }
+
+    #header.scrolled {
+      background: var(--white);
+      box-shadow: 0 1px 24px rgba(0,0,0,0.08);
+      padding: 14px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo a {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .nav-logo-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-logo-sub {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-links .btn {
+      padding: 10px 22px;
+      font-size: 12px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+      transition: 0.3s;
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--text);
+    }
+
+    .mobile-nav-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      background-color: var(--bg);
+      background-image: url('file:///Users/gustavosousa/Downloads/ESSA.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(250,248,244,0.75);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    #hero .container { position: relative; z-index: 1; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--grad);
+      flex-shrink: 0;
+    }
+
+    .hero-headline {
+      font-size: clamp(34px, 4.8vw, 54px);
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0;
+    }
+
+    .hero-subheadline {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 440px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 400;
+      width: 100%;
+    }
+
+    .hero-badge svg { flex-shrink: 0; }
+
+    .hero-img-wrap {
+      position: relative;
+    }
+
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px -12px 12px 12px;
+      border: 1.5px solid var(--gold);
+      opacity: 0.35;
+      border-radius: 4px;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+
+    .hero-img-wrap:hover::before { opacity: 0.65; }
+
+    .hero-img-wrap img {
+      width: 100%;
+      height: 540px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 2px;
+      filter: drop-shadow(0 24px 48px rgba(139,94,60,0.18));
+      transition: transform 0.6s ease;
+    }
+
+    .hero-img-wrap:hover img { transform: scale(1.015); }
+
+    .hero-img-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.92);
+      padding: 10px 16px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green);
+      backdrop-filter: blur(4px);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-img-wrap img { height: 420px; }
+      #hero { padding-top: 100px; padding-bottom: 60px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-img-wrap img { height: 320px; }
+    }
+
+    /* ─── CREDENTIALS BAR ─── */
+    #credentials {
+      background: linear-gradient(135deg, #3d1f0f 0%, #2a1208 100%);
+      padding: 22px 0;
+    }
+
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0;
+      align-items: center;
+    }
+
+    .cred-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.2);
+      justify-self: center;
+    }
+
+    .cred-item {
+      text-align: center;
+      padding: 0 32px;
+    }
+
+    .cred-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .cred-label {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 768px) {
+      .cred-grid { grid-template-columns: 1fr; gap: 32px; }
+      .cred-divider { display: none; }
+      .cred-item { padding: 0 16px; }
+    }
+
+    /* ─── SOBRE ─── */
+    #sobre {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .sobre-text p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .sobre-img-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .sobre-img-wrap > img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 8px;
+    }
+
+    .img-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    @media (max-width: 1024px) {
+      .sobre-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ─── BENEFÍCIOS ─── */
+    #metodo {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .section-header { margin-bottom: 48px; }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(139,94,60,0.10);
+    }
+
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 20px;
+      color: var(--green);
+    }
+
+    .benefit-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .benefit-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1024px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── COMO FUNCIONA ─── */
+    #como-funciona {
+      padding: 80px 0;
+      background: var(--bg);
+    }
+
+    .accordion {
+      max-width: 760px;
+      margin: 32px auto 0;
+    }
+
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-item:first-child { border-top: 1px solid var(--border); }
+
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .accordion-btn:hover .accordion-title { color: var(--gold); }
+
+    .accordion-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      min-width: 32px;
+      font-weight: 600;
+    }
+
+    .accordion-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--green);
+      font-weight: 600;
+      flex: 1;
+      transition: color 0.2s;
+    }
+
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.open .accordion-icon { transform: rotate(45deg); }
+
+    .accordion-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-item.open .accordion-body { max-height: 300px; }
+
+    .accordion-body p {
+      padding: 0 0 28px 52px;
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .section-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    /* ─── RESULTADOS ─── */
+    #resultados {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+
+    .result-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      border-radius: var(--radius);
+    }
+
+    .testimonial-quote {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 1024px) {
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .results-grid { grid-template-columns: 1fr; }
+      .result-img { height: 260px; }
+    }
+
+    /* ─── CLÍNICA ─── */
+    #clinica {
+      background: #1a110a;
+      background-image: url('file:///Users/gustavosousa/Downloads/Gemini_Generated_Image_37vm0h37vm0h37vm.png');
+      background-size: cover;
+      background-position: center;
+      padding: 80px 0;
+      position: relative;
+    }
+    #clinica::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20,12,6,0.82);
+      pointer-events: none;
+    }
+    #clinica .container { position: relative; z-index: 1; }
+
+    .clinica-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 260px 220px;
+      gap: 10px;
+    }
+    /* 5-cell layout: featured spans 2 rows col 1, + 2 small + 2 third */
+    .clinica-photo-featured {
+      grid-column: 1;
+      grid-row: 1 / 3;
+    }
+    .clinica-photo-featured img,
+    .clinica-photo-small img,
+    .clinica-photo-third img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: brightness(0.9);
+    }
+    .clinica-photo-featured img { height: 100%; }
+    .clinica-photo-featured,
+    .clinica-photo-small,
+    .clinica-photo-third {
+      overflow: hidden;
+      border-radius: 6px;
+    }
+    .clinica-photo-featured img:hover,
+    .clinica-photo-small img:hover,
+    .clinica-photo-third img:hover {
+      transform: scale(1.04);
+      filter: brightness(1);
+    }
+    @media (max-width: 768px) {
+      .clinica-photos-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .clinica-photo-featured { grid-column: 1 / 3; grid-row: auto; }
+      .clinica-photo-featured img { height: 240px; }
+      .clinica-photo-small img,
+      .clinica-photo-third img { height: 160px; }
+    }
+
+    /* ─── CARROSSEL INFINITO ─── */
+    .carousel-wrap {
+      overflow: hidden;
+      margin-bottom: 48px;
+      border-radius: 8px;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 16px;
+      animation: carouselScroll 28s linear infinite;
+      width: max-content;
+    }
+
+    .carousel-wrap:hover .carousel-track {
+      animation-play-state: paused;
+    }
+
+    .carousel-slide {
+      flex-shrink: 0;
+    }
+
+    .carousel-slide img {
+      width: 340px;
+      height: 280px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 6px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .carousel-slide img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 40px rgba(139,94,60,0.18);
+    }
+
+    @keyframes carouselScroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .carousel-slide img { width: 280px; height: 240px; }
+    }
+
+    @media (max-width: 768px) {
+      .carousel-slide img { height: 300px; }
+    }
+
+    /* ─── FORMULÁRIO ─── */
+    #form {
+      padding: 80px 0;
+      background: #f0ece4;
+      background-image: url('file:///Users/gustavosousa/Downloads/ESSA.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    #form::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240,236,228,0.88);
+      pointer-events: none;
+    }
+
+    #form .container { position: relative; z-index: 1; }
+
+    .form-wrapper {
+      max-width: 620px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 44px 48px;
+      border-radius: 8px;
+      box-shadow: 0 8px 48px rgba(139,94,60,0.14);
+      border-top: 3px solid #9B4E28;
+    }
+
+    .form-title {
+      font-size: clamp(26px, 3vw, 34px);
+      margin-bottom: 8px;
+    }
+
+    .form-subtitle {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid #d4d0c8;
+      border-radius: var(--radius);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus { border-color: var(--green); }
+    .form-input::placeholder { color: #b0aca4; }
+
+    .radio-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--muted);
+      user-select: none;
+    }
+
+    .radio-label input[type="radio"] { display: none; }
+
+    .radio-custom {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #d4d0c8;
+      border-radius: 50%;
+      flex-shrink: 0;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+
+    .radio-label input[type="radio"]:checked + .radio-custom {
+      border-color: var(--green);
+    }
+
+    .radio-label input[type="radio"]:checked + .radio-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .radio-group-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 18px;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: var(--grad);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-submit:hover { background: var(--grad-h); transform: translateY(-1px); }
+
+    @media (max-width: 768px) {
+      .form-wrapper { padding: 40px 28px; }
+    }
+
+    /* ─── FOOTER ─── */
+    #footer {
+      background: #0d0905;
+      padding: 40px 0;
+      border-top: 1px solid #2a1e16;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .footer-brand { max-width: 340px; }
+    .footer-copy { font-size: 12px; color: #aaa; margin-top: 12px; }
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-end;
+    }
+    .footer-contacts {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+    }
+    .footer-contacts span { font-size: 12px; color: #bbb; }
+    .footer-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .footer-specs span {
+      font-size: 11px;
+      color: #999;
+      background: #1e1612;
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1px solid #3a2a1e;
+    }
+    @media (max-width: 768px) {
+      .footer-inner { flex-direction: column; gap: 32px; }
+      .footer-right { align-items: flex-start; }
+      .footer-contacts, .footer-specs { align-items: flex-start; justify-content: flex-start; }
+    }
+
+    /* ─── SECTION PADDING MOBILE ─── */
+    @media (max-width: 768px) {
+      #sobre, #metodo, #como-funciona, #resultados, #clinica, #form { padding: 56px 0; }
+    }
+
+    /* ─── INTERATIVIDADE ADICIONAL ─── */
+
+    /* Linha separadora animada entre seções */
+    .section-divider-line {
+      width: 0;
+      height: 1px;
+      background: var(--grad);
+      margin: 0 auto 48px;
+      transition: width 1.2s ease;
+    }
+    .section-divider-line.visible { width: 120px; }
+
+    /* Contador com underline animado */
+    .cred-item { position: relative; }
+    .cred-item::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--grad);
+      margin: 10px auto 0;
+      transition: width 0.8s ease 0.4s;
+      border-radius: 2px;
+    }
+    .cred-item.visible::after { width: 40px; }
+
+    /* Benefit cards com linha left colorida ao hover */
+    .benefit-card {
+      border-left: 3px solid transparent;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
+    }
+    .benefit-card:hover { border-left-color: #C8714A; }
+
+    /* Testimonial cards com borda top gradiente */
+    .testimonial-card {
+      border-top: 3px solid transparent;
+      border-image: linear-gradient(135deg, #C8714A, #6B3019) 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(139,94,60,0.12);
+    }
+
+    /* Accordion active state */
+    .accordion-item.open .accordion-title {
+      background: linear-gradient(135deg, #C8714A 0%, #9B4E28 50%, #6B3019 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Floating label nos inputs do form */
+    .form-input:focus {
+      border-color: #9B4E28;
+      box-shadow: 0 0 0 3px rgba(155,78,40,0.12);
+    }
+
+    /* Pulse no CTA principal */
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 4px 20px rgba(139,94,60,0.3); }
+      50% { box-shadow: 0 4px 32px rgba(139,94,60,0.55), 0 0 0 6px rgba(139,94,60,0.08); }
+    }
+    .btn-submit { animation: pulse-cta 2.5s ease-in-out infinite; }
+
+    /* Número hero badge ícone */
+    .hero-badge svg circle,
+    .hero-badge svg path { stroke: #9B4E28; }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE NAV OVERLAY -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile">
+  <button class="mobile-nav-close" id="mobileClose" aria-label="Fechar menu">&#215;</button>
+  <a href="#metodo" onclick="closeMobileNav()">Método</a>
+  <a href="#resultados" onclick="closeMobileNav()">Resultados</a>
+  <a href="#clinica" onclick="closeMobileNav()">Clínica</a>
+  <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" onclick="closeMobileNav()">Agendar</a>
+</nav>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a href="#">
+          <img src="file:///Users/gustavosousa/Downloads/clinica-renovo-logo3.png" alt="Clínica Renovo" style="height:36px;width:auto;display:block;" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+        <li><a href="#clinica">Clínica</a></li>
+        <li><a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn">Agendar</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="fade-in">
+        <span class="hero-eyebrow">Emagrecimento masculino &middot; Fortaleza, CE</span>
+        <h1 class="hero-headline">Pare de se sabotar.<br><span style="background: linear-gradient(135deg, #C8714A 0%, #9B4E28 50%, #6B3019 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-style:normal; display:block;">Seja o homem que você quer ser.</span></h1>
+        <span class="gold-line"></span>
+        <p class="hero-subheadline">Emagreça com método médico — e recupere a disposição, a presença e a energia para estar em tudo que importa: no trabalho, com a família, em você mesmo.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn">Agendar minha consulta</a>
+        <div class="hero-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="#8B5E3C" stroke-width="1.4"/>
+            <path d="M12 8v4" stroke="#8B5E3C" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="12" cy="16" r="0.8" fill="#8B5E3C"/>
+          </svg>
+          Atendimento exclusivamente particular
+        </div>
+      </div>
+      <div class="hero-img-wrap fade-in" style="transition-delay:0.2s">
+        <img src="file:///Users/gustavosousa/Desktop/ESSACHAT.png" alt="Dr. Daniel Frota" loading="lazy" />
+        <span class="hero-img-caption">Dr. Daniel Frota — Endocrinologista &amp; Nutrólogo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS BAR -->
+<section id="credentials">
+  <div class="container">
+    <div class="cred-grid">
+      <div class="cred-item scale-in">
+        <span class="cred-number" data-count="18">0</span>
+        <span class="cred-label">anos de atuação médica</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item scale-in" style="transition-delay:0.15s">
+        <span class="cred-number" data-count="20000" data-formatted="20.000">0</span>
+        <span class="cred-label">pacientes acompanhados</span>
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item scale-in" style="transition-delay:0.3s">
+        <span class="cred-number" data-count="30">0</span>
+        <span class="cred-label">kg eliminados pelo próprio Dr. Frota</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-text slide-left">
+        <span class="section-eyebrow">Sobre o Dr.</span>
+        <h2 class="section-title">Eu já estive no seu lugar.</h2>
+        <span class="gold-line"></span>
+        <p>Médico pós-graduado em Endocrinologia e Nutrologia, referência nacional em emagrecimento sustentável há mais de 18 anos. Mas antes de médico, fui paciente. Carreguei por anos o peso do excesso de gordura, a falta de disposição e a sensação de não estar presente como deveria — no trabalho, em casa, como pai e marido. Foi mergulhando na ciência que tudo mudou.</p>
+        <p>Eliminei mais de 30 kg e percebi que o que eu havia recuperado ia muito além do peso: era energia, clareza, presença. Hoje, mais de 20.000 homens passaram por esse processo — e o que eles relatam não é só a balança. É a disposição para o dia, a proteção da família, a confiança de volta.</p>
+        <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn">Agendar minha consulta</a>
+      </div>
+      <div class="sobre-img-wrap slide-right" style="transition-delay:0.2s">
+        <img src="file:///Users/gustavosousa/Downloads/ANT.png"
+             alt="Dr. Daniel Frota — 30 kg eliminados"
+             style="width:100%;border-radius:8px;object-fit:contain;max-height:520px;background:#f0ece6;"
+             loading="lazy" />
+        <p class="img-caption">Dr. Daniel Frota — antes e depois · 30 kg eliminados</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section id="metodo">
+  <div class="container">
+    <div class="section-header fade-up-slow">
+      <span class="section-eyebrow">O que muda</span>
+      <h2 class="section-title">O que muda quando você trata a raiz.</h2>
+      <p class="section-subtitle">Emagrecer é o começo. O que vem depois é o homem que você reconhece no espelho.</p>
+    </div>
+    <div class="section-divider-line fade-in"></div>
+    <div class="benefits-grid">
+
+      <div class="benefit-card scale-in">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 8v8M8.5 13.5l3.5 3 3.5-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Emagrecer em definitivo</h3>
+        <p>Chega do ciclo que se repete. Resultados reais, duradouros — e um corpo que finalmente acompanha sua rotina.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.08s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9z" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8.5 12.5c.5-2 2-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M8 15h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Controlar fome e ansiedade</h3>
+        <p>Sem brigar com a cabeça o dia todo. Regulação hormonal que elimina a compulsão — e devolve o foco.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.16s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 3L4 14h8l-1 7 9-11h-8l1-7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Energia e presença</h3>
+        <p>Acordar disposto, ter energia para o trabalho e ainda estar presente quando chega em casa — isso não é sorte, é fisiologia.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.24s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="9" width="14" height="6" rx="3" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2.5 12h2.5M19 12h2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="9" cy="12" r="2" fill="currentColor"/>
+          <circle cx="15" cy="12" r="2" fill="currentColor"/>
+        </svg>
+        <h3>Massa muscular</h3>
+        <p>Um corpo que transmite saúde e confiança. Composição corporal melhorada com segurança e embasamento científico.</p>
+      </div>
+
+      <div class="benefit-card scale-in">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21C12 21 4 15.5 4 9.5a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 11.5-8 11.5z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 11l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Libido e vitalidade</h3>
+        <p>Saúde hormonal que impacta tudo — do desempenho à confiança com quem você ama. Restaurada de forma natural.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.08s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.5A9.5 9.5 0 1 1 11.5 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M16 3h5v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Sono de qualidade</h3>
+        <p>Dormir bem muda tudo — humor, decisões, presença. É a base que sustenta um homem saudável de verdade.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.16s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3l7 4v5c0 4.5-3.2 7.8-7 9-3.8-1.2-7-4.5-7-9V7l7-4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h3>Saúde de longo prazo</h3>
+        <p>Ser o pai que corre atrás dos filhos. O homem que protege quem ama porque cuida de si primeiro.</p>
+      </div>
+
+      <div class="benefit-card scale-in" style="transition-delay:0.24s">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 7v5l3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M6.5 6.5l1.2 1.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <h3>Longevidade</h3>
+        <p>Chegar aos 60, 70 anos ainda forte, presente e independente. As decisões que você toma hoje constroem esse homem.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-header fade-up-slow" style="text-align:center; max-width:600px; margin-left:auto; margin-right:auto; margin-bottom:0">
+      <span class="section-eyebrow">O processo</span>
+      <h2 class="section-title">Do diagnóstico ao resultado.</h2>
+      <p class="section-subtitle" style="margin:0 auto">Seis etapas. Um método. Resultados que duram.</p>
+    </div>
+    <div class="section-divider-line fade-in"></div>
+
+    <div class="accordion" id="accordion">
+
+      <div class="accordion-item open fade-in" style="transition-delay:0s">
+        <button class="accordion-btn">
+          <span class="accordion-number">01</span>
+          <span class="accordion-title">Consulta Dr. Daniel Frota</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>Análise completa de composição corporal, avaliação clínica, metabólica e hormonal. Ao final, você sai com um plano estratégico personalizado, com metas claras e adaptado à sua rotina.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item fade-in" style="transition-delay:0.07s">
+        <button class="accordion-btn">
+          <span class="accordion-number">02</span>
+          <span class="accordion-title">Avaliação Metabólica</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>Exame padrão-ouro para quantificar seu metabolismo real. Identifica bloqueios que impedem o emagrecimento e permite otimizar cada estratégia com precisão.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item fade-in" style="transition-delay:0.14s">
+        <button class="accordion-btn">
+          <span class="accordion-number">03</span>
+          <span class="accordion-title">Consultoria Nutricional</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>Dr. Igor Oliveira avalia seus hábitos, condição nutricional e resultados de exames. O resultado é um plano alimentar que funciona dentro da sua vida — não o contrário.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item fade-in" style="transition-delay:0.21s">
+        <button class="accordion-btn">
+          <span class="accordion-number">04</span>
+          <span class="accordion-title">Mentoria Comportamental</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>Dra. Eurides Araújo trabalha os fatores emocionais e comportamentais que travam o progresso. Porque a ciência resolve o corpo, mas a mudança real começa na cabeça.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item fade-in" style="transition-delay:0.28s">
+        <button class="accordion-btn">
+          <span class="accordion-number">05</span>
+          <span class="accordion-title">Suplementação Personalizada</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>Vitaminas, minerais e hormônios ajustados às suas necessidades específicas. Nada genérico. Tudo calibrado para elevar seu corpo ao estado ideal.</p>
+        </div>
+      </div>
+
+      <div class="accordion-item fade-in" style="transition-delay:0.35s">
+        <button class="accordion-btn">
+          <span class="accordion-number">06</span>
+          <span class="accordion-title">Monitoramento Contínuo</span>
+          <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <p>A equipe ao seu lado em toda a jornada. Acompanhamento real, não abandono após a consulta.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-cta fade-in">
+      <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn">Agendar minha consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="container">
+    <div class="section-header fade-up-slow" style="margin-bottom:48px">
+      <span class="section-eyebrow">Resultados</span>
+      <h2 class="section-title">Resultados que falam por si.</h2>
+      <p class="section-subtitle">Pacientes reais. Acompanhamento real.</p>
+    </div>
+    <div class="section-divider-line fade-in"></div>
+
+    <div class="carousel-wrap fade-in">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 01.webp" alt="Resultado 1" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 02.webp" alt="Resultado 2" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 03.webp" alt="Resultado 3" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 04.webp" alt="Resultado 4" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 05.webp" alt="Resultado 5" /></div>
+        <!-- duplicatas para loop infinito -->
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 01.webp" alt="Resultado 1" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 02.webp" alt="Resultado 2" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 03.webp" alt="Resultado 3" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 04.webp" alt="Resultado 4" /></div>
+        <div class="carousel-slide"><img src="file:///Users/gustavosousa/Downloads/antes e depois 05.webp" alt="Resultado 5" /></div>
+      </div>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card slide-left">
+        <p class="testimonial-quote">"Passei anos tentando por conta própria. Em 4 meses com o Dr. Daniel, perdi o que não consegui em uma década — e voltei a ter energia para estar presente com minha família."</p>
+        <span class="testimonial-author">Marcos T., 44 anos</span>
+      </div>
+      <div class="testimonial-card slide-left" style="transition-delay:0.1s">
+        <p class="testimonial-quote">"Perdi 22 kg em 6 meses. Mas o que mais me marcou foi recuperar o foco no trabalho e a disposição que eu achava que tinha perdido para sempre."</p>
+        <span class="testimonial-author">Ricardo A., 39 anos</span>
+      </div>
+      <div class="testimonial-card slide-left" style="transition-delay:0.2s">
+        <p class="testimonial-quote">"Minha esposa disse que eu voltei a ser o homem que ela conheceu. Isso vale mais do que qualquer número na balança."</p>
+        <span class="testimonial-author">Fernando S., 51 anos</span>
+      </div>
+    </div>
+
+    <div class="section-cta fade-in">
+      <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn">Agendar minha consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLÍNICA -->
+<section id="clinica">
+  <!-- fundo com a foto atual do gemini como textura -->
+  <div class="container">
+    <div class="section-header fade-in" style="text-align:center;margin-bottom:56px;">
+      <span class="section-eyebrow" style="color:var(--gold)">Onde acontece</span>
+      <h2 class="section-title" style="color:#fff">Clínica Renovo</h2>
+      <p style="font-size:16px;font-weight:300;color:rgba(255,255,255,0.65);max-width:480px;margin:0 auto">Fortaleza, Aldeota — um ambiente pensado para quem valoriza discrição, conforto e privacidade.</p>
+    </div>
+    <div class="section-divider-line fade-in"></div>
+
+    <!-- Grid de fotos 3 colunas, linha 1: grande + 2 pequenas, linha 2: 3 iguais -->
+    <div class="clinica-photos-grid fade-in">
+      <div class="clinica-photo-featured">
+        <img src="file:///Users/gustavosousa/Downloads/consultorio 01.webp" alt="Sala de consulta" loading="lazy" />
+      </div>
+      <div class="clinica-photo-small">
+        <img src="file:///Users/gustavosousa/Downloads/consul 02.webp" alt="Ambiente" loading="lazy" />
+      </div>
+      <div class="clinica-photo-small">
+        <img src="file:///Users/gustavosousa/Downloads/consul 03.webp" alt="Ambiente" loading="lazy" />
+      </div>
+      <div class="clinica-photo-third">
+        <img src="file:///Users/gustavosousa/Downloads/consul 04.webp" alt="Sala de espera" loading="lazy" />
+      </div>
+      <div class="clinica-photo-third">
+        <img src="file:///Users/gustavosousa/Downloads/consul 05.webp" alt="Recepção" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="section-cta fade-in" style="margin-top:48px">
+      <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn" style="background:var(--gold);border-color:var(--gold);color:#fff">Agendar minha consulta</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section id="form">
+  <div class="container">
+    <div class="form-wrapper fade-in" style="text-align:center;">
+      <h2 class="form-title">Agende sua consulta</h2>
+      <p class="form-subtitle">Clique abaixo e fale diretamente com nossa equipe pelo WhatsApp para agendar sua consulta.</p>
+      <a href="https://api.whatsapp.com/send/?phone=5585991460455&text=Ol%C3%A1%21+Vim+pela+campanha+de+Emagrecimento+Masculino+e+gostaria+de+entender+mais+sobre+o+trabalho+do+doutor.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-submit" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-top:12px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar minha consulta pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="file:///Users/gustavosousa/Downloads/clinica-renovo-logo3.png" alt="Clínica Renovo" style="height:28px;width:auto;filter:brightness(0) invert(0.6);" />
+        <p class="footer-copy">© 2024 Clínica Renovo · Dr. Daniel Frota. Todos os direitos reservados.</p>
+        <p style="font-size:11px;color:#999;margin-top:4px;line-height:1.5;">As informações contidas neste site são de caráter informativo e não substituem consulta médica.</p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-contacts">
+          <span>(85) 9 9600-7273</span>
+          <span>(85) 9 8759-5301</span>
+          <span>contato@drdanielfrota.com.br</span>
+          <span>Rua Marcos Macêdo, 1333 · Aldeota, Fortaleza</span>
+        </div>
+        <div class="footer-specs">
+          <span>Endocrinologia</span>
+          <span>Nutrologia</span>
+          <span>Emagrecimento</span>
+          <span>Hipertrofia</span>
+          <span>Qualidade de Vida</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─── STICKY HEADER ───
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 40) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
+
+  // ─── HAMBURGER MENU ───
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+
+  hamburger.addEventListener('click', function() {
+    mobileNav.classList.add('open');
+  });
+
+  mobileClose.addEventListener('click', function() {
+    mobileNav.classList.remove('open');
+  });
+
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+  }
+
+  // ─── ANIMAÇÕES DE ENTRADA (variadas) ───
+  var animEls = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in, .fade-up-slow');
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  animEls.forEach(function(el) { fadeObserver.observe(el); });
+
+  // ─── GOLD LINE ANIMATION ───
+  var goldLines = document.querySelectorAll('.gold-line');
+  var goldObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        goldObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  goldLines.forEach(function(el) { goldObserver.observe(el); });
+
+  // ─── PARALLAX HERO IMG ───
+  var heroImg = document.querySelector('.hero-img-wrap img');
+  if (heroImg) {
+    window.addEventListener('scroll', function() {
+      var scrolled = window.scrollY;
+      if (scrolled < window.innerHeight) {
+        heroImg.style.transform = 'translateY(' + scrolled * 0.08 + 'px)';
+      }
+    }, { passive: true });
+  }
+
+  // ─── HERO ENTRANCE ───
+  document.querySelectorAll('#hero .fade-in, #hero .slide-left, #hero .slide-right, #hero .scale-in').forEach(function(el) {
+    el.classList.add('visible');
+  });
+  document.querySelectorAll('#hero .gold-line').forEach(function(el) {
+    setTimeout(function() { el.classList.add('visible'); }, 400);
+  });
+
+  // ─── COUNTER ANIMATION ───
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var formatted = el.getAttribute('data-formatted');
+    var duration = 1600;
+    var start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var elapsed = timestamp - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+
+      if (progress >= 1 && formatted) {
+        el.textContent = formatted;
+      } else if (target >= 1000) {
+        el.textContent = current.toLocaleString('pt-BR');
+      } else {
+        el.textContent = current;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  var counterEls = document.querySelectorAll('[data-count]');
+  var counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counterEls.forEach(function(el) { counterObserver.observe(el); });
+
+  // ─── ACCORDION ───
+  var accordionItems = document.querySelectorAll('.accordion-item');
+
+  accordionItems.forEach(function(item) {
+    var btn = item.querySelector('.accordion-btn');
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+
+      // Close all
+      accordionItems.forEach(function(i) { i.classList.remove('open'); });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+
+  // Typed effect na headline do hero
+  (function(){
+    var el = document.querySelector('.hero-headline span');
+    if (!el) return;
+    var text = el.textContent;
+    el.textContent = '';
+    el.style.opacity = '1';
+    var i = 0;
+    setTimeout(function type() {
+      if (i < text.length) {
+        el.textContent += text[i++];
+        setTimeout(type, 36);
+      }
+    }, 800);
+  })();
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var params = new URLSearchParams(window.location.search);
+    var utms = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid'];
+    var waLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]');
+    waLinks.forEach(function(link) {
+      var url = new URL(link.href);
+      utms.forEach(function(key) {
+        if (params.get(key)) url.searchParams.set(key, params.get(key));
+      });
+      link.href = url.toString();
+    });
+  });
+</script>
+</body>
+</html>
